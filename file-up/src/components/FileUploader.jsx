@@ -10,7 +10,7 @@ const FileUploader = () => {
     const selectedFile = e.target.files[0];
     setFile(selectedFile);
 
-    // Create a URL for previewing the selected file
+   
     const preview = URL.createObjectURL(selectedFile);
     setPreviewUrl(preview);
   };
@@ -20,15 +20,15 @@ const FileUploader = () => {
 
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('upload_preset', 'file_up'); // Replace with your Cloudinary preset name
+    formData.append('upload_preset', 'file_up'); 
 
     try {
       const response = await axios.post(
-        'https://api.cloudinary.com/v1_1/dzk8lfxrz/image/upload', // Replace with your Cloudinary cloud name
+        'https://api.cloudinary.com/v1_1/dzk8lfxrz/image/upload', 
         formData
       );
 
-      setUploadUrl(response.data.secure_url); // Store the uploaded file's URL
+      setUploadUrl(response.data.secure_url); 
     } catch (error) {
       console.error('Error uploading the file', error);
     }
